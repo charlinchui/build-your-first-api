@@ -1,8 +1,4 @@
-# React + Vite
+# Build your first API
+This project is in progress at the moment. The idea is to build a website where I give the steps to build a basic CRUD API from scratch for multiple languages and explain what is an API and how does it work for people to learn from it.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The current scope for this project includes adding one route that explains what is an API, a route that explains who I am and what is the purpose of this page, a route with a cheatsheet (I would probably want to make it dynamic so users can change between the languages) and one route for each language step by step guide.
