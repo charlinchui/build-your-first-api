@@ -1,5 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
@@ -14,12 +15,6 @@ const dropdownStyles = {
 };
 
 const Navbar = (props) => {
-  const [language, setLanguage] = useState("Language");
-
-  const handleLanguageChange = (lang) =>{
-    setLanguage(lang);
-    props.onLanguageChange(lang);
-  }
 
   return (
     <nav className="navbar w-screen absolute right-0 top-0 flex flex-row justify-between mx-auto p-4 bg-white border-gray-200 dark:bg-gray-900">
@@ -29,8 +24,8 @@ const Navbar = (props) => {
         <span className="px-5 text-center content-center cursor-pointer">Contribute</span>
         <span className="px-5 text-center content-center cursor-pointer">Purpose</span>
         <Menu as={"div"} className="cursor-pointer pl-5">
-          <Menu.Button className={dropdownStyles[language] + " font-bold w-44"}>
-            <span>{language}</span>
+          <Menu.Button className={dropdownStyles[props.language] + " font-bold w-44"}>
+            <span>{props.language}</span>
           </Menu.Button>
           <Transition
             as={Fragment}
@@ -42,64 +37,60 @@ const Navbar = (props) => {
             leaveTo="transform opacity-0 scale-95"
           >
             <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800">
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link to="/javascript"
+                      className={classNames(
+                        active
+                          ? "bg-gray-100 dark:text-white dark:bg-gray-500"
+                          : "",
+                        "block px-4 py-2 text-sm text-gray-700 dark:text-white hover:text-yellow-200",
+                      )}
+                    >
+                      JavaScript
+                    </Link>
+                  )}
+                </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <span
-                    onClick={() => {handleLanguageChange("JavaScript")}}
-                    className={classNames(
-                      active
-                        ? "bg-gray-100 dark:text-white dark:bg-gray-500"
-                        : "",
-                      "block px-4 py-2 text-sm text-gray-700 dark:text-white",
-                    )}
-                  >
-                    JavaScript
-                  </span>
+                  <Link to="/typescript"
+                      className={classNames(
+                        active
+                          ? "bg-gray-100 dark:text-white dark:bg-gray-500"
+                          : "",
+                        "block px-4 py-2 text-sm text-gray-700 dark:text-white hover:text-blue-300",
+                      )}
+                    >
+                      TypeScript
+                    </Link>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <span
-                    onClick={() => handleLanguageChange("TypeScript")}
-                    className={classNames(
-                      active
-                        ? "bg-gray-100 dark:text-white dark:bg-gray-500"
-                        : "",
-                      "block px-4 py-2 text-sm text-gray-700 dark:text-white",
-                    )}
-                  >
-                    TypeScript
-                  </span>
+                  <Link to="/go"
+                      className={classNames(
+                        active
+                          ? "bg-gray-100 dark:text-white dark:bg-gray-500"
+                          : "",
+                        "block px-4 py-2 text-sm text-gray-700 dark:text-white hover:text-cyan-400",
+                      )}
+                    >
+                      Go
+                    </Link>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <span
-                    onClick={() => handleLanguageChange("Go")}
-                    className={classNames(
-                      active
-                        ? "bg-gray-100 dark:text-white dark:bg-gray-500"
-                        : "",
-                      "block px-4 py-2 text-sm text-gray-700 dark:text-white",
-                    )}
-                  >
-                    Go
-                  </span>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <span
-                    onClick={() => handleLanguageChange("Ruby")}
-                    className={classNames(
-                      active
-                        ? "bg-gray-100 dark:text-white dark:bg-gray-500"
-                        : "",
-                      "block px-4 py-2 text-sm text-gray-700 dark:text-white",
-                    )}
-                  >
-                    Ruby
-                  </span>
+                  <Link to="/ruby"
+                  className={classNames(
+                    active
+                      ? "bg-gray-100 dark:text-white dark:bg-gray-500"
+                      : "",
+                    "block px-4 py-2 text-sm text-gray-700 dark:text-white hover:text-red-300",
+                  )}
+                >
+                  Ruby
+                </Link>
                 )}
               </Menu.Item>
             </Menu.Items>

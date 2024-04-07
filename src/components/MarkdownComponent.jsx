@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 
-const MarkdownComponent = ({file}) => {
+const MarkdownComponent = (props) => {
     const [markdown, setMarkdown] = useState('')
     useEffect(()=>{
-       fetch(file)
+       fetch(props.file)
             .then(res => res.text())
             .then(res => setMarkdown(res))
         }, []);
