@@ -8,23 +8,23 @@ const classNames = (...classes) => {
 
 const dropdownStyles = {
   Language: "bg-slate-100 text-gray-900 focus:outline-red-500 hover:border-red-500 hover:bg-gray-800 hover:text-gray-100 transition-colors",
-  JavaScript: "bg-yellow-300 text-gray-900 focus:outline-orange-500",
-  TypeScript: "bg-blue-500 text-white",
-  Ruby: "bg-red-600 text-white focus:outline-red-300",
-  Go: "bg-cyan-400 text-gray-900 focus:outline-blue-500",
+  JavaScript: "bg-yellow-300 text-gray-900 hover:border-orange-500 focus:outline-orange-500",
+  TypeScript: "bg-blue-500 text-white hover:border-blue-200",
+  Ruby: "bg-red-600 text-white focus:outline-red-300 hover:border-red-300",
+  Go: "bg-cyan-400 text-gray-900 focus:outline-blue-100 hover:border-blue-100",
 };
 
 const Navbar = (props) => {
 
   return (
-    <nav className="navbar w-screen absolute right-0 top-0 flex flex-row justify-between mx-auto p-4 bg-white border-gray-200 dark:bg-gray-900">
+    <nav className="navbar w-screen h-1/8 absolute right-0 top-0 flex flex-row justify-between mx-auto p-4 bg-white border-gray-200 dark:bg-gray-900">
       <span className="text-center content-center">Build Your First API</span>
       <div className="flex flex-row text-center content-center">
         <span className="text-center content-center px-5 cursor-pointer" onClick={() => console.log("clicked!")}>What's an API?</span>
         <span className="px-5 text-center content-center cursor-pointer">Contribute</span>
         <span className="px-5 text-center content-center cursor-pointer">Purpose</span>
-        <Menu as={"div"} className="cursor-pointer pl-5">
-          <Menu.Button className={dropdownStyles[props.language] + " font-bold w-44"}>
+        <Menu as={"div"} className="cursor-pointer pl-5 self-center">
+          <Menu.Button className={dropdownStyles[props.language] + " font-bold w-44 hover:border-2"}>
             <span>{props.language}</span>
           </Menu.Button>
           <Transition
